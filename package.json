@@ -1,9 +1,9 @@
 {
-  "name": "@lemoncode/fonk-dni-validator",
+  "name": "@lemoncode/fonk-nif-validator",
   "version": "0.1.0",
   "description": "// TODO: Update description: This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to validate if a field of a form ...",
-  "main": "dist/@lemoncode/fonk-dni-validator.cjs.js",
-  "module": "dist/@lemoncode/fonk-dni-validator.esm.js",
+  "main": "dist/@lemoncode/fonk-nif-validator.cjs.js",
+  "module": "dist/@lemoncode/fonk-nif-validator.esm.js",
   "typings": "typings/index.d.ts",
   "files": [
     "dist",
@@ -29,10 +29,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lemoncode/fonk-dni-validator.git"
+    "url": "git+https://github.com/Lemoncode/fonk-nif-validator.git"
   },
   "keywords": [
-    "dni",
+    "nif",
     "validator",
     "fonk",
     "form validation",
@@ -42,9 +42,9 @@
   "author": "Lemoncode",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Lemoncode/fonk-dni-validator/issues"
+    "url": "https://github.com/Lemoncode/fonk-nif-validator/issues"
   },
-  "homepage": "https://github.com/Lemoncode/fonk-dni-validator#readme",
+  "homepage": "https://github.com/Lemoncode/fonk-nif-validator#readme",
   "peerDependencies": {
     "@lemoncode/fonk": "latest"
   },

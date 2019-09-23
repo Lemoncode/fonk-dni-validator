@@ -1,8 +1,8 @@
-# fonk-dni-validator example
+# fonk-nif-validator example
 
-Example using `fonk-dni-validator`.
+Example using `fonk-nif-validator`.
 
-[![See fonk-dni-validator example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/lemoncode/fonk-dni-validator/tree/master/examples/ts)
+[![See fonk-nif-validator example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/lemoncode/fonk-nif-validator/tree/master/examples/ts)
 
 # About Basefactor + Lemoncode
 

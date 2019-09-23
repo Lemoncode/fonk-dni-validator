@@ -1,14 +1,14 @@
 {
-  "name": "fonk-dni-validator-ts-example",
+  "name": "fonk-nif-validator-ts-example",
   "version": "1.0.0",
-  "description": "fonk-dni-validator, typescript example",
+  "description": "fonk-nif-validator, typescript example",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open"
   },
   "dependencies": {
     "@lemoncode/fonk": "latest",
-    "@lemoncode/fonk-dni-validator": "latest"
+    "@lemoncode/fonk-nif-validator": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

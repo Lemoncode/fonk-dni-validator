@@ -1,7 +1,7 @@
 import { validator, setErrorMessage } from './validator';
 
 // TODO: Add specs
-describe('fonk-dni-validator specs', () => {
+describe('fonk-nif-validator specs', () => {
   it('should return succeeded validation when it feeds value equals undefined', () => {
     // Arrange
     const value = void 0;

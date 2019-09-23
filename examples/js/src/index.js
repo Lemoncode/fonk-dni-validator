@@ -1,9 +1,9 @@
 import { createFormValidation } from '@lemoncode/fonk';
-import { dni } from '@lemoncode/fonk-dni-validator';
+import { nif } from '@lemoncode/fonk-nif-validator';
 
 const validationSchema = {
   field: {
-    myField: [dni.validator],
+    myField: [nif.validator],
   },
 };
 

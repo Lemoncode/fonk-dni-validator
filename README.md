@@ -1,8 +1,8 @@
-# fonk-dni-validator
+# fonk-nif-validator
 
-[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-dni-validator/master/ci?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-dni-validator/tree/master)
-[![NPM Version](https://badgen.net/npm/v/@lemoncode/fonk-dni-validator?icon=npm&label=npm)](https://www.npmjs.com/package/@lemoncode/fonk-dni-validator)
-[![bundle-size](https://badgen.net/bundlephobia/min/@lemoncode/fonk-dni-validator)](https://bundlephobia.com/result?p=@lemoncode/fonk-dni-validator)
+[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-nif-validator/master/ci?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-nif-validator/tree/master)
+[![NPM Version](https://badgen.net/npm/v/@lemoncode/fonk-nif-validator?icon=npm&label=npm)](https://www.npmjs.com/package/@lemoncode/fonk-nif-validator)
+[![bundle-size](https://badgen.net/bundlephobia/min/@lemoncode/fonk-nif-validator)](https://bundlephobia.com/result?p=@lemoncode/fonk-nif-validator)
 
 This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to:
 
@@ -21,13 +21,13 @@ const myFormValues = {
 }
 ```
 
-We can add a dni validation to the myFormValues
+We can add a nif validation to the myFormValues
 
 ```javascript
-import { dni } from '@lemoncode/fonk-dni-validator';
+import { nif } from '@lemoncode/fonk-nif-validator';
 
 const validationSchema = {
-  price: [dni.validator],
+  price: [nif.validator],
 };
 ```
 
@@ -36,20 +36,20 @@ You can customize the error message displayed in two ways:
 - Globally, replace the default error message in all validationSchemas (e.g. porting to spanish):
 
 ```javascript
-import { dni } from '@lemoncode/fonk-dni-validator';
+import { nif } from '@lemoncode/fonk-nif-validator';
 
-dni.setErrorMessage('El campo debe de ser numérico');
+nif.setErrorMessage('El campo debe de ser numérico');
 ```
 
 - Locally just override the error message for this validationSchema:
 
 ```javascript
-import { dni } from '@lemoncode/fonk-dni-validator';
+import { nif } from '@lemoncode/fonk-nif-validator';
 
 const validationSchema = {
   price: [
     {
-      validator: dni.validator,
+      validator: nif.validator,
       message: 'Error message only updated for the validation schema',
     },
   ],

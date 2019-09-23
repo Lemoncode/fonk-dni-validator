@@ -1,3 +1,3 @@
-import * as dni from './validator';
+import * as nif from './validator';
 
-export { dni };
+export { nif };
