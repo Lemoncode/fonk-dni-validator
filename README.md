@@ -6,9 +6,7 @@
 
 This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to:
 
-// TODO: Update description and example.
-
-- Validate if a field of a form ....
+- Validate if a field of a form is a valid NIF (DNI, NIE and/or CIF)
 
 How to add it to an existing form validation schema:
 
@@ -18,6 +16,8 @@ We have the following form model:
 const myFormValues = {
   product : 'shoes',
   price: 20,
+  providerCIF: 'P9316179B',
+  clientDNI: '31016922L'
 }
 ```
 
@@ -27,7 +27,18 @@ We can add a nif validation to the myFormValues
 import { nif } from '@lemoncode/fonk-nif-validator';
 
 const validationSchema = {
-  price: [nif.validator],
+  providerCIF: [
+    {
+      validator: nif.validator,
+      customArgs: { validTypes: [nif.types.CIF] },
+    },
+  ],
+  clientDNI: [
+    {
+      validator: nif.validator,
+      customArgs: { validTypes: [nif.types.DNI, nif.types.NIE] },
+    },
+  ],
 };
 ```
 
@@ -38,7 +49,7 @@ You can customize the error message displayed in two ways:
 ```javascript
 import { nif } from '@lemoncode/fonk-nif-validator';
 
-nif.setErrorMessage('El campo debe de ser numérico');
+nif.setErrorMessage('El campo debe de ser un DNI válido');
 ```
 
 - Locally just override the error message for this validationSchema:
