@@ -1,6 +1,6 @@
 # fonk-nif-validator
 
-[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-nif-validator/master/ci?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-nif-validator/tree/master)
+[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-nif-validator/master?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-nif-validator/tree/master)
 [![NPM Version](https://badgen.net/npm/v/@lemoncode/fonk-nif-validator?icon=npm&label=npm)](https://www.npmjs.com/package/@lemoncode/fonk-nif-validator)
 [![bundle-size](https://badgen.net/bundlephobia/min/@lemoncode/fonk-nif-validator)](https://bundlephobia.com/result?p=@lemoncode/fonk-nif-validator)
 
