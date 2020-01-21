@@ -2,30 +2,35 @@ import {
   FieldValidationFunctionSync,
   parseMessageWithCustomArgs,
 } from '@lemoncode/fonk';
+import { mapCustomArgsToMessageArgs, validateNIF } from './validator.business';
+import { CustomArgs } from './validator.model';
 
-// TODO: Add validator type
-const VALIDATOR_TYPE = '';
+const VALIDATOR_TYPE = 'IS_VALID_NIF';
 
-// TODO: Add default message
-let defaultMessage = '';
+let defaultMessage = 'The value must be a valid {{validTypes}}';
 export const setErrorMessage = message => (defaultMessage = message);
 
 const isDefined = value => value !== void 0 && value !== null && value !== '';
 
-export const validator: FieldValidationFunctionSync = fieldValidatorArgs => {
+const validateType = value => typeof value === 'string';
+
+const validate = (value: string, args: CustomArgs) =>
+  validateNIF(value, args.validTypes);
+
+export const validator: FieldValidationFunctionSync<CustomArgs> = fieldValidatorArgs => {
   const { value, message = defaultMessage, customArgs } = fieldValidatorArgs;
 
-  // TODO: Add validator
-  const succeeded = !isDefined(value) || ...;
+  const succeeded =
+    !isDefined(value) ||
+    (validateType(value) && validate(value, customArgs as CustomArgs));
 
   return {
     succeeded,
     message: succeeded
       ? ''
-      : // TODO: Use if it has custom args
-        parseMessageWithCustomArgs(
-          (message as string) || defaultMessage,
-          customArgs
+      : parseMessageWithCustomArgs(
+          message as string,
+          mapCustomArgsToMessageArgs(customArgs)
         ),
     type: VALIDATOR_TYPE,
   };
