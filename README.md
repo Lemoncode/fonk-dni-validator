@@ -58,12 +58,22 @@ nif.setErrorMessage('El campo debe de ser un DNI válido');
 import { nif } from '@lemoncode/fonk-nif-validator';
 
 const validationSchema = {
-  price: [
-    {
-      validator: nif.validator,
-      message: 'Error message only updated for the validation schema',
-    },
-  ],
+  field: {
+    providerCIF: [
+      {
+        validator: nif.validator,
+        customArgs: { validTypes: [nif.types.CIF] },
+        message: 'Error message only updated for the validation schema',
+      },
+    ],
+    clientDNI: [
+      {
+        validator: nif.validator,
+        customArgs: { validTypes: [nif.types.DNI, nif.types.NIE] },
+        message: 'Error message only updated for the validation schema',
+      },
+    ],
+  },
 };
 ```
 
