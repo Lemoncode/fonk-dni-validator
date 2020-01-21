@@ -3,7 +3,9 @@ import {
   parseMessageWithCustomArgs,
 } from '@lemoncode/fonk';
 import { mapCustomArgsToMessageArgs, validateNIF } from './validator.business';
-import { CustomArgs } from './validator.model';
+import { CustomArgs, NIFType as types } from './validator.model';
+
+export { types };
 
 const VALIDATOR_TYPE = 'IS_VALID_NIF';
 
