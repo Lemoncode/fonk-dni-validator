@@ -1,5 +1,4 @@
 export enum NIFType {
-  Unknown = 'Unknown',
   DNI = 'DNI',
   NIE = 'NIE',
   CIF = 'CIF',

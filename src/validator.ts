@@ -2,7 +2,7 @@ import {
   FieldValidationFunctionSync,
   parseMessageWithCustomArgs,
 } from '@lemoncode/fonk';
-import { checkNIF, mapCustomArgsToMessageArgs } from './validator.business';
+import { mapCustomArgsToMessageArgs, validateNIF } from './validator.business';
 import { CustomArgs } from './validator.model';
 
 const VALIDATOR_TYPE = 'IS_VALID_NIF';
@@ -15,11 +15,9 @@ const isDefined = value => value !== void 0 && value !== null && value !== '';
 const validateType = value => typeof value === 'string';
 
 const validate = (value: string, args: CustomArgs) =>
-  args.validTypes.indexOf(checkNIF(value)) >= 0;
+  validateNIF(value, args.validTypes);
 
-export const validator: FieldValidationFunctionSync<
-  CustomArgs
-> = fieldValidatorArgs => {
+export const validator: FieldValidationFunctionSync<CustomArgs> = fieldValidatorArgs => {
   const { value, message = defaultMessage, customArgs } = fieldValidatorArgs;
 
   const succeeded =

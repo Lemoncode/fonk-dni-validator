@@ -230,7 +230,7 @@ describe('fonk-nif-validator specs', () => {
     });
   });
 
-  it('should return succeeded validation when it feeds value is a not valid NIF, and validTypes allows the Unkown type', () => {
+  it('should return failed validation when it feeds value is a not valid NIF', () => {
     // Arrange
     const value = 'XX014188554A';
 
@@ -238,14 +238,14 @@ describe('fonk-nif-validator specs', () => {
     const result = validator({
       value,
       customArgs: {
-        validTypes: [NIFType.Unknown],
+        validTypes: [NIFType.CIF, NIFType.NIE, NIFType.DNI],
       },
     });
 
     // Assert
     expect(result).toEqual({
-      succeeded: true,
-      message: '',
+      succeeded: false,
+      message: 'The value must be a valid CIF, NIE, DNI',
       type: VALIDATOR_TYPE,
     });
   });
@@ -319,7 +319,7 @@ describe('fonk-nif-validator specs', () => {
       value,
       message: 'The value must not be a valid NIF',
       customArgs: {
-        validTypes: [NIFType.Unknown],
+        validTypes: [],
       },
     });
 

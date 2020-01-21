@@ -14,8 +14,6 @@ We have the following form model:
 
 ```
 const myFormValues = {
-  product : 'shoes',
-  price: 20,
   providerCIF: 'P9316179B',
   clientDNI: '31016922L'
 }
@@ -27,18 +25,20 @@ We can add a nif validation to the myFormValues
 import { nif } from '@lemoncode/fonk-nif-validator';
 
 const validationSchema = {
-  providerCIF: [
-    {
-      validator: nif.validator,
-      customArgs: { validTypes: [nif.types.CIF] },
-    },
-  ],
-  clientDNI: [
-    {
-      validator: nif.validator,
-      customArgs: { validTypes: [nif.types.DNI, nif.types.NIE] },
-    },
-  ],
+  field: {
+    providerCIF: [
+      {
+        validator: nif.validator,
+        customArgs: { validTypes: [nif.types.CIF] },
+      },
+    ],
+    clientDNI: [
+      {
+        validator: nif.validator,
+        customArgs: { validTypes: [nif.types.DNI, nif.types.NIE] },
+      },
+    ],
+  },
 };
 ```
 

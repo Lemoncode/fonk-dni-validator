@@ -1,5 +1,5 @@
-import { checkNIF } from './validator.business';
 import { NIFType } from './validator.model';
+import { validateNIF } from './validator.business';
 
 describe('Test Suite NIF Validator', () => {
   it('Should return DNI type with a valid DNI', () => {
@@ -28,10 +28,10 @@ describe('Test Suite NIF Validator', () => {
     ];
 
     // Act
-    const result = items.map(checkNIF);
+    const result = items.map(x => validateNIF(x, [NIFType.DNI]));
 
     // Assert
-    result.map(type => expect(type).toBe(NIFType.DNI));
+    result.map(type => expect(type).toBeTruthy());
   });
 
   it('Should return NIE type with a valid NIE', () => {
@@ -60,10 +60,10 @@ describe('Test Suite NIF Validator', () => {
     ];
 
     // Act
-    const result = items.map(checkNIF);
+    const result = items.map(x => validateNIF(x, [NIFType.NIE]));
 
     // Assert
-    result.map(type => expect(type).toBe(NIFType.NIE));
+    result.map(type => expect(type).toBeTruthy());
   });
 
   it('Should return CIF type with a valid CIF', () => {
@@ -93,10 +93,10 @@ describe('Test Suite NIF Validator', () => {
     ];
 
     // Act
-    const result = items.map(checkNIF);
+    const result = items.map(x => validateNIF(x, [NIFType.CIF]));
 
     // Assert
-    result.map(type => expect(type).toBe(NIFType.CIF));
+    result.map(type => expect(type).toBeTruthy());
   });
 
   it('Should return Unkown within valid NIF', () => {
@@ -149,9 +149,11 @@ describe('Test Suite NIF Validator', () => {
     ];
 
     // Act
-    const result = items.map(checkNIF);
+    const result = items.map(x =>
+      validateNIF(x, [NIFType.NIE, NIFType.CIF, NIFType.DNI])
+    );
 
     // Assert
-    result.map(type => expect(type).toBe(NIFType.Unknown));
+    result.map(type => expect(type).toBeFalsy());
   });
 });
